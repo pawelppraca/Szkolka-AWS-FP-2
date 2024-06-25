@@ -1,0 +1,21 @@
+
+-------------------------------------
+############## S3 ##################
+-------------------------------------
+
+# Listing folderu
+-------------------------------------
+aws s3 ls
+
+
+# kopiowanie plików do folderu
+-------------------------------------
+
+# przechodzimy do folderu źrółowego 
+
+cd C:\Users\pparasyn\OneDrive - Future Processing S.A\Dokumenty\AWS Szkółka\Youtube-de\Data_yt
+
+# i wydajemy polecenie
+
+aws s3 cp . s3://pawel-projects-bucket/youtube/raw_statistics_reference_data/ --recursive --exclude "*" --include "*.json"
+
