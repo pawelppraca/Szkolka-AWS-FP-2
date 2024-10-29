@@ -1,0 +1,12 @@
+[
+    {
+    "name": "Sales.SalesOrderHeader",
+    "column": ["RevisionNumber"]
+    
+    } 
+    ,
+    {
+        "name": "Sales.SalesOrderDetail",
+        "column": [""]
+    }
+]

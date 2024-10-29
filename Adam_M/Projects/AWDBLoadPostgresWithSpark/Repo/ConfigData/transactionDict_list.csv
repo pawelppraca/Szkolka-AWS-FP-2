@@ -1,0 +1,7 @@
+table,column,isenabled,order
+Sales.Customer,CustomerID,1,0
+Sales.SalesPerson,BusinessEntityID,1,0
+Sales.SalesTerritory,TerritoryID,1,0
+Person.Address,AddressID,1,0
+Purchasing.ShipMethod,ShipMethodID,1,0
+Sales.CreditCard,CreditCardID,1,0

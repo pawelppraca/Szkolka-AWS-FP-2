@@ -1,0 +1,4 @@
+table,column,isenabled,order
+Sales.SalesOrderHeader,ModifiedDate,1,1
+Sales.SalesOrderDetail,ModifiedDate,1,0
+Sales.Customer,ModifiedDate,0,0

@@ -1,0 +1,3 @@
+ Adventures works SQL databases export to csv using Spark (Transaction data) 
+Load into staging PostgreSQL (Transaction).
+Load into DWH PostgreSQL 

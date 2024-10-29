@@ -19,11 +19,19 @@ options(
          url='jdbc:postgresql://localhost:5432/Adventureworks', # jdbc:postgresql://<host>:<port>/<database>
          dbtable='sales.salesorderheader',
          user='postgres',
-         password='<provide_pass>', #provide_pass
+         password='<>',
          driver='org.postgresql.Driver').\
 load()
 
+"""         url='jdbc:postgresql://localhost:5432/Adventureworks', # jdbc:postgresql://<host>:<port>/<database>
+         dbtable='sales.salesorderheader',
+         user='postgres',
 
+
+         clear
+         password='%P0st!sgre@t',
+         driver='org.postgresql.Driver').\
+"""
 #return top 3 rows in data frame
 df.show(3)
 print('---------------------------------------------------------------------------------------------------')
