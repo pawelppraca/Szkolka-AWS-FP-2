@@ -1,6 +1,6 @@
 #configuration files
 
-FullFolderPath = "D:/Docs/documents/python/projects/AWDBLoadPostgresWithSpark" #set path
+FullFolderPath = "D:/Docs/documents/python/projects/AWDBLoadPostgresWithSpark"
 
 FolderExtractSQLToCSV = "Files/Source/0.Extract"
 FolderLoadCSV = "Files/Source/1.Load"
