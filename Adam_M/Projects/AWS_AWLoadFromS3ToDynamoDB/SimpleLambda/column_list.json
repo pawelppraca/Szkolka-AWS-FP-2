@@ -1,0 +1,12 @@
+[
+                        {
+                            "name": "Header",
+                            "column": ["SalesOrderID","OrderDate"]
+                        
+                        } 
+                        ,
+                        {
+                            "name": "Items",
+                            "column": ["SalesOrderDetailID","SalesOrderID"]
+                        }
+]

@@ -1,0 +1,59 @@
+{
+  "Comment": "Load grouped S3 files into separate DynamoDB tables",
+  "StartAt": "ProcessFiles",
+  "States": {
+    "ProcessFiles": {
+      "Type": "Map",
+      "InputPath": "$",
+      "ItemsPath": "$.fileLists",
+      "MaxConcurrency": 2,
+      "Iterator": {
+        "StartAt": "GetFileListAndTables",
+        "States": {
+          "GetFileListAndTables": {
+            "Type": "Task",
+            "Resource": "arn:aws:states:::lambda:invoke",
+            "Parameters": {
+              "FunctionName": "arn:aws:lambda:eu-west-1:927230372648:function:adamm-load-AW-S3toDynamo-getfiles",
+              "Payload": {
+                "s3path.$": "$.s3path",
+                "filename.$": "$.filename",
+                "colnames.$": "$.colnames",
+                "tablename.$": "$.tablename"
+              }
+            },
+            "ResultPath": "$.processingData",
+            "Next": "ProcessFilesToTables"
+          },
+          "ProcessFilesToTables": {
+            "Type": "Map",
+            "ItemsPath": "$.processingData.Payload.files",
+            "Parameters": {
+              "files.$": "$$.Map.Item.Value",
+              "tablename.$": "$.processingData.Payload.tablename",
+              "colnames.$": "$.processingData.Payload.colnames"
+            },
+            "MaxConcurrency": 3,
+            "Iterator": {
+              "StartAt": "LoadToDynamoDB",
+              "States": {
+                "LoadToDynamoDB": {
+                  "Type": "Task",
+                  "Resource": "arn:aws:states:::lambda:invoke",
+                  "Parameters": {
+                    "FunctionName": "arn:aws:lambda:eu-west-1:927230372648:function:adamm-load-AW-S3toDynamo-loadToDynamo",
+                    "Payload.$": "$"
+                  },
+                  "ResultPath": "$.loadResult",
+                  "End": true
+                }
+              }
+            },
+            "End": true
+          }
+        }
+      },
+      "End": true
+    }
+  }
+}
